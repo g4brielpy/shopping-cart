@@ -3,7 +3,7 @@ import { FaReact } from "react-icons/fa";
 
 export function HeaderPage() {
   return (
-    <header className="flex justify-between items-center p-4 bg-blue-600 text-white">
+    <header className="container mx-auto flex justify-between items-center p-4 bg-lue-600 font-bold text-xl md:text-2xl lg:text-3xl">
       <span className="flex items-center gap-2">
         <FaReact />
         Shopping
