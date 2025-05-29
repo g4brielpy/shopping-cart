@@ -1,5 +1,5 @@
-import TitleCustom from "../components/TitleCustom";
-import { CardProduct } from "../components/CardProduct";
+import TitleCustom from "../../components/TitleCustom";
+import { CardProduct } from "../../components/CardProduct";
 
 export default function HomePage() {
   return (
@@ -7,7 +7,7 @@ export default function HomePage() {
       <TitleCustom>Home</TitleCustom>
       <section
         id="products"
-        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 justify-items-center"
+        className="my-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 justify-items-center"
       >
         <CardProduct
           title="produto"
