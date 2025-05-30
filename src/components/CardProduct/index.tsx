@@ -37,7 +37,6 @@ export function CardProduct({
         </h2>
         <p className="text-sm text-secondary-text line-clamp-2">
           {description}
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit.
         </p>
         <p className="font-extrabold text-base mt-2">{price}</p>
       </div>
