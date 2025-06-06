@@ -43,7 +43,10 @@ export function CardProduct({
         <div className="flex items-center justify-between mt-4">
           <p className="font-extrabold text-base mt-2">{price}</p>
 
-          <button className="text-secondary-text bg-border-muted p-2 rounded cursor-pointer hover:bg-gray-700 transition-colors">
+          <button
+            title="Adicionar ao carrinho"
+            className="text-secondary-text bg-border-muted p-2 rounded cursor-pointer hover:bg-gray-700 transition-colors"
+          >
             <IoIosAdd size={20} />
           </button>
         </div>
