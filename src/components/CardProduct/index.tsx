@@ -25,16 +25,16 @@ export function CardProduct({
        `}
     >
       {imgSrc && (
-        <div className="w-full h-40 bg-border-muted rounded-lg mb-4">
+        <div className="w-full h-40 bg-white rounded-lg mb-4">
           <img
             src={imgSrc}
             alt={title}
-            className="w-full h-40 object-cover rounded-lg"
+            className="w-full h-40 object-contain rounded-lg"
           />
         </div>
       )}
       <div className="flex flex-col gap-2">
-        <h2 className="text-lg font-semibold text-text-primary mt-2">
+        <h2 className="text-lg font-semibold text-text-primary mt-2 line-clamp-2">
           {title}
         </h2>
         <p className="text-sm text-secondary-text line-clamp-2">
