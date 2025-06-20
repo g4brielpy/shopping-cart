@@ -1,7 +1,9 @@
-import { useParams } from "react-router";
+import { Link, useParams } from "react-router";
 
 import { useContext, useEffect, useState } from "react";
 import { ProductsContext, ProductProps } from "../../contexts/ProductsContext";
+
+import { IoChevronBackSharp } from "react-icons/io5";
 
 export default function ProductDetails() {
   const { productId } = useParams();
@@ -38,6 +40,12 @@ export default function ProductDetails() {
   return (
     <main className="container h-screen mx-auto p-4 flex items-center justify-center">
       <div className="max-w-4xl mx-auto p-4">
+        <Link
+          to={"/"}
+          className="block w-fit mb-10 p-2 bg-primary-btn rounded-full hover:bg-primary-btn-hover transition-colors"
+        >
+          <IoChevronBackSharp size={40} />
+        </Link>
         <div className="flex flex-col md:flex-row items-center gap-8">
           <img
             src={product.image}
@@ -55,6 +63,10 @@ export default function ProductDetails() {
                 currency: "BRL",
               })}
             </p>
+
+            <button className="p-2 rounded-md bg-primary-btn hover:bg-primary-btn-hover transition-colors">
+              Adicionar ao carrinho
+            </button>
           </div>
         </div>
       </div>
