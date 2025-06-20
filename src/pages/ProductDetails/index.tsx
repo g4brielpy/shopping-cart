@@ -1,4 +1,3 @@
-import { CardProduct } from "../../components/CardProduct";
 import { useParams } from "react-router";
 
 import { useContext, useEffect, useState } from "react";
@@ -7,39 +6,34 @@ import { ProductsContext, ProductProps } from "../../contexts/ProductsContext";
 export default function ProductDetails() {
   const { productId } = useParams();
   const productsData = useContext(ProductsContext);
-  const [product, setProduct] = useState<ProductProps>({} as ProductProps);
+
+  const [product, setProduct] = useState<ProductProps | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
     const productData = productsData.find(
       (product) => product.id.toString() === productId
     );
 
-    setProduct(productData!);
+    setProduct(productData || null);
+    setIsLoading(false);
   }, [productId, productsData]);
 
-  let valorFormatado = "R$ 0,00";
-  if (typeof product.price === "number") {
-    valorFormatado = product.price.toLocaleString("pt-BR", {
-      style: "currency",
-      currency: "BRL",
-    });
-
-    console.log("Valor formatado:", valorFormatado);
+  if (isLoading) {
+    return (
+      <h1 className="text-center mt-20 text-4xl font-bold">
+        Buscando produto...
+      </h1>
+    );
   }
 
-  return (
-    <main className="container h-full mx-auto my-20 p-4 flex items-center justify-center">
-      <div className="border border-primary-btn rounded-3xl p-4">
-        {product && (
-          <CardProduct
-            title={product.title}
-            description={product.description}
-            price={valorFormatado}
-            imgSrc={product.image}
-            className="line-clamp-none"
-          />
-        )}
-      </div>
-    </main>
-  );
+  if (!product) {
+    return (
+      <h1 className="text-center mt-20 text-4xl font-bold">
+        Produto não encontrado.
+      </h1>
+    );
+  }
+
+  return <h1>Produto: {product.title}</h1>;
 }
