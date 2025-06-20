@@ -35,5 +35,29 @@ export default function ProductDetails() {
     );
   }
 
-  return <h1>Produto: {product.title}</h1>;
+  return (
+    <main className="container h-screen mx-auto p-4 flex items-center justify-center">
+      <div className="max-w-4xl mx-auto p-4">
+        <div className="flex flex-col md:flex-row items-center gap-8">
+          <img
+            src={product.image}
+            alt={product.title}
+            className="w-full max-w-[400px] md:w-1/2 h-auto object-contain rounded-lg"
+          />
+          <div className="flex flex-col gap-4">
+            <h1 className="text-3xl font-bold text-primary-text">
+              {product.title}
+            </h1>
+            <p className="text-secondary-text">{product.description}</p>
+            <p className="text-xl font-extrabold text-text-primary">
+              {product.price.toLocaleString("pt-BR", {
+                style: "currency",
+                currency: "BRL",
+              })}
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+  );
 }
