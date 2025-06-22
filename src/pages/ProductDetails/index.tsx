@@ -67,7 +67,12 @@ export default function ProductDetails() {
               })}
             </p>
 
-            <button className="p-2 rounded-md bg-primary-btn hover:bg-primary-btn-hover transition-colors">
+            <button
+              className="p-2 rounded-md bg-primary-btn hover:bg-primary-btn-hover transition-colors"
+              onClick={() => {
+                cartData?.addToCart(product);
+              }}
+            >
               Adicionar ao carrinho
             </button>
           </div>
