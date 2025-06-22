@@ -1,11 +1,15 @@
 import { RouterProvider } from "react-router";
 import { Router } from "./Routes";
+
 import { ProductsProvider } from "./contexts/ProductsProvider";
+import { CartProvider } from "./contexts/CartProvider";
 
 function App() {
   return (
     <ProductsProvider>
-      <RouterProvider router={Router} />
+      <CartProvider>
+        <RouterProvider router={Router} />
+      </CartProvider>
     </ProductsProvider>
   );
 }
