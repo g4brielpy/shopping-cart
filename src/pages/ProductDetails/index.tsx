@@ -1,13 +1,16 @@
 import { Link, useParams } from "react-router";
-
 import { useContext, useEffect, useState } from "react";
+
 import { ProductsContext, ProductProps } from "../../contexts/ProductsContext";
+import { CartContext } from "../../contexts/CartContext";
 
 import { IoChevronBackSharp } from "react-icons/io5";
 
 export default function ProductDetails() {
   const { productId } = useParams();
   const productsData = useContext(ProductsContext);
+
+  const cartData = useContext(CartContext);
 
   const [product, setProduct] = useState<ProductProps | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
