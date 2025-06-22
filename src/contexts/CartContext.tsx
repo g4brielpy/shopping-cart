@@ -1,7 +1,7 @@
 import { createContext } from "react";
 import { ProductProps } from "./ProductsContext";
 
-interface CartItemsProps extends ProductProps {
+export interface CartItemsProps extends ProductProps {
   amount: number;
 }
 interface CartContextProps {
