@@ -3,8 +3,8 @@ import { ProductProps } from "./ProductsContext";
 
 interface CartContextProps {
   cartItems: ProductProps[];
-  addToCart: () => void;
-  removeFromCart: () => void;
+  addToCart: (item: ProductProps) => void;
+  removeFromCart: (item: ProductProps) => void;
   clearCart: () => void;
 }
 
