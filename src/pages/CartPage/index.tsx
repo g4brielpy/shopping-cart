@@ -1,46 +1,47 @@
+import { useContext, useEffect, useState } from "react";
+import { CartContext } from "../../contexts/CartContext";
+import { CartItemsProps } from "../../contexts/CartContext";
+
 import TitleCustom from "../../components/TitleCustom";
 import { CardCart } from "../../components/CardCart";
 
 export default function CartPage() {
+  const [productsCart, setProductsCart] = useState<CartItemsProps[] | null>(
+    null
+  );
+  const CartData = useContext(CartContext);
+
+  useEffect(() => {
+    setProductsCart(CartData?.cartItems || null);
+  }, [CartData]);
+
+  if (!CartData) {
+    return (
+      <main className="container mx-auto p-4">
+        <TitleCustom>Carrinho de Compras</TitleCustom>
+
+        <section className="my-80">
+          <p className="text-center font-bold text-gray-600">
+            Seu carrinho está vazio.
+          </p>
+        </section>
+      </main>
+    );
+  }
+
   return (
     <main className="container mx-auto p-4">
       <TitleCustom>Carrinho de Compras</TitleCustom>
 
-      <section className="my-8">
-        <p className="text-center text-gray-600">Seu carrinho está vazio.</p>
-      </section>
-
-      <section className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2  gap-4 justify-items-center">
-        <CardCart
-          title="produto"
-          description="Lorem, ipsum dolor sit amet consectetur adipisicing elit."
-          price="R$ 89,90"
-        />
-        <CardCart
-          title="produto"
-          description="Lorem, ipsum dolor sit amet consectetur adipisicing elit."
-          price="R$ 89,90"
-        />
-        <CardCart
-          title="produto"
-          description="Lorem, ipsum dolor sit amet consectetur adipisicing elit."
-          price="R$ 89,90"
-        />
-        <CardCart
-          title="produto"
-          description="Lorem, ipsum dolor sit amet consectetur adipisicing elit."
-          price="R$ 89,90"
-        />
-        <CardCart
-          title="produto"
-          description="Lorem, ipsum dolor sit amet consectetur adipisicing elit."
-          price="R$ 89,90"
-        />
-        <CardCart
-          title="produto"
-          description="Lorem, ipsum dolor sit amet consectetur adipisicing elit."
-          price="R$ 89,90"
-        />
+      <section className="my-8 max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-4 justify-items-center">
+        {productsCart?.map((product) => (
+          <CardCart
+            key={product.id}
+            product={product}
+            add={() => console.log("Add")}
+            del={CartData.removeFromCart}
+          />
+        ))}
       </section>
       <div className="max-w-4xl mx-auto mt-8 p-4 border-border-muted border rounded-lg shadow-md">
         <p className="text-gray-600">Total: R$ 345,00</p>
