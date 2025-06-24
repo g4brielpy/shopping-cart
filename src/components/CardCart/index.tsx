@@ -1,19 +1,16 @@
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { IoIosAdd, IoIosRemove } from "react-icons/io";
 
+import { ProductProps } from "../../contexts/ProductsContext";
+
 interface CardCartProps {
-  title: string;
-  description: string;
-  price: string;
+  product: ProductProps;
   className?: string;
+  del: (item: ProductProps) => void;
+  add: (item: ProductProps) => void;
 }
 
-export function CardCart({
-  title,
-  description,
-  price,
-  className = "",
-}: CardCartProps) {
+export function CardCart({ product, del, className = "" }: CardCartProps) {
   return (
     <div
       className={`
@@ -23,12 +20,17 @@ export function CardCart({
     >
       <div className="flex flex-col gap-4">
         <h2 className="text-lg font-semibold text-text-primary mt-2">
-          {title}
+          {product.title}
         </h2>
         <p className="text-sm text-secondary-text line-clamp-3">
-          {description}.
+          {product.description}.
         </p>
-        <p className="font-extrabold text-base mt-2">{price}</p>
+        <p className="font-extrabold text-base mt-2">
+          {product.price.toLocaleString("pt-BR", {
+            style: "currency",
+            currency: "BRL",
+          })}
+        </p>
       </div>
 
       <div className="flex items-center justify-between mt-4">
@@ -41,7 +43,10 @@ export function CardCart({
             <IoIosAdd size={20} />
           </button>
         </div>
-        <button className="text-secondary-text bg-border-muted p-2 rounded cursor-pointer hover:text-red-500 transition-colors">
+        <button
+          onClick={() => del(product)}
+          className="text-secondary-text bg-border-muted p-2 rounded cursor-pointer hover:text-red-500 transition-colors"
+        >
           <RiDeleteBin6Line size={24} />
         </button>
       </div>
