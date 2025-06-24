@@ -1,18 +1,39 @@
-import { CartContext } from "./CartContext";
-import { ProductProps } from "./ProductsContext";
 import { useState } from "react";
+import { CartContext } from "./CartContext";
+
+import { CartItemsProps } from "./CartContext";
+import { ProductProps } from "./ProductsContext";
 
 export function CartProvider({ children }: { children: React.ReactNode }) {
-  const [cartItems, setCartItems] = useState<ProductProps[]>([]);
+  const [cartItems, setCartItems] = useState<CartItemsProps[]>([]);
 
   function addToCart(item: ProductProps) {
-    setCartItems((oldCartItems) => [...oldCartItems, item]);
-    console.log("Item adicionado com sucesso!");
+    const indexExists = cartItems.findIndex(
+      (product) => product.id === item.id
+    );
+
+    if (indexExists !== -1) {
+      /*
+      Verificar se o item já existe no carrinho
+      caso sim = incrementar a prop 'amount'.
+      */
+      const copyItems = [...cartItems];
+      copyItems[indexExists].amount += 1;
+
+      setCartItems(copyItems);
+      return;
+    }
+
+    const newItem: CartItemsProps = {
+      ...item,
+      amount: 1,
+    };
+    setCartItems((prevCartItems) => [...prevCartItems, newItem]);
   }
 
   function removeFromCart(item: ProductProps) {
     const indexToRemove = cartItems.findIndex(
-      (product) => product.id == item.id
+      (product) => product.id === item.id
     );
 
     const newCartItems = [...cartItems];
@@ -20,6 +41,8 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
 
     console.log(newCartItems);
     setCartItems(newCartItems);
+
+    console.log("Item deletado com sucesso!");
   }
 
   function clearCart() {
@@ -28,7 +51,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
 
   return (
     <CartContext.Provider
-      value={{ cartItems, addToCart, removeFromCart, clearCart }}
+      value={{ cartItems, total: 100, addToCart, removeFromCart, clearCart }}
     >
       {children}
     </CartContext.Provider>
