@@ -13,14 +13,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     );
 
     if (indexExists !== -1) {
-      /*
-      Verificar se o item já existe no carrinho
-      caso sim = incrementar a prop 'amount'.
-      */
-      const copyItems = [...cartItems];
-      copyItems[indexExists].amount += 1;
-
-      setCartItems(copyItems);
+      incrementQuantity(item);
       return;
     }
 
@@ -43,6 +36,28 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     setCartItems(newCartItems);
 
     console.log("Item deletado com sucesso!");
+  }
+
+  function incrementQuantity(item: ProductProps) {
+    const indexToIncrement = cartItems.findIndex(
+      (product) => product.id === item.id
+    );
+
+    const copyItems = [...cartItems];
+    copyItems[indexToIncrement].amount += 1;
+
+    setCartItems(copyItems);
+  }
+
+  function decrementQuantity(item: ProductProps) {
+    const indexToDecrement = cartItems.findIndex(
+      (product) => product.id === item.id
+    );
+
+    const copyItems = [...cartItems];
+    copyItems[indexToDecrement].amount -= 1;
+
+    setCartItems(copyItems);
   }
 
   function clearCart() {
