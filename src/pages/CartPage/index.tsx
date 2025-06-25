@@ -35,12 +35,7 @@ export default function CartPage() {
 
       <section className="my-8 max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-4 justify-items-center">
         {productsCart?.map((product) => (
-          <CardCart
-            key={product.id}
-            product={product}
-            add={() => console.log("Add")}
-            del={CartData.removeFromCart}
-          />
+          <CardCart key={product.id} product={product} />
         ))}
       </section>
       <div className="max-w-4xl mx-auto mt-8 p-4 border-border-muted border rounded-lg shadow-md">

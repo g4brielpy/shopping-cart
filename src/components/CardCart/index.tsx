@@ -1,16 +1,18 @@
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { IoIosAdd, IoIosRemove } from "react-icons/io";
 
+import { useContext } from "react";
+import { CartContext } from "../../contexts/CartContext";
 import { CartItemsProps } from "../../types/cart";
 
 interface CardCartProps {
   product: CartItemsProps;
   className?: string;
-  del: (item: CartItemsProps) => void;
-  add: (item: CartItemsProps) => void;
 }
 
-export function CardCart({ product, del, className = "" }: CardCartProps) {
+export function CardCart({ product, className = "" }: CardCartProps) {
+  const CartData = useContext(CartContext);
+
   return (
     <div
       className={`
@@ -35,16 +37,22 @@ export function CardCart({ product, del, className = "" }: CardCartProps) {
 
       <div className="flex items-center justify-between mt-4">
         <div className="flex items-center gap-2">
-          <button className="text-secondary-text bg-border-muted p-2 rounded cursor-pointer hover:bg-gray-700 transition-colors">
+          <button
+            onClick={() => CartData?.decrementQuantity(product)}
+            className="text-secondary-text bg-border-muted p-2 rounded cursor-pointer hover:bg-gray-700 transition-colors"
+          >
             <IoIosRemove size={20} />
           </button>
           <span className="text-secondary-text">{product.amount}</span>
-          <button className="text-secondary-text bg-border-muted p-2 rounded cursor-pointer hover:bg-gray-700 transition-colors">
+          <button
+            onClick={() => CartData?.addToCart(product)}
+            className="text-secondary-text bg-border-muted p-2 rounded cursor-pointer hover:bg-gray-700 transition-colors"
+          >
             <IoIosAdd size={20} />
           </button>
         </div>
         <button
-          onClick={() => del(product)}
+          onClick={() => CartData?.removeFromCart(product)}
           className="text-secondary-text bg-border-muted p-2 rounded cursor-pointer hover:text-red-500 transition-colors"
         >
           <RiDeleteBin6Line size={24} />
