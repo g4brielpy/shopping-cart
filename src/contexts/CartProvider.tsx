@@ -32,10 +32,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     const newCartItems = [...cartItems];
     newCartItems.splice(indexToRemove, 1);
 
-    console.log(newCartItems);
     setCartItems(newCartItems);
-
-    console.log("Item deletado com sucesso!");
   }
 
   function incrementQuantity(item: ProductProps) {
@@ -55,6 +52,11 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     );
 
     const copyItems = [...cartItems];
+
+    if (copyItems[indexToDecrement].amount === 1) {
+      removeFromCart(item);
+      return;
+    }
     copyItems[indexToDecrement].amount -= 1;
 
     setCartItems(copyItems);
