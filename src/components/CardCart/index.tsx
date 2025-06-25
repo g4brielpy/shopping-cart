@@ -1,7 +1,7 @@
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { IoIosAdd, IoIosRemove } from "react-icons/io";
 
-import { ProductProps } from "../../contexts/ProductsContext";
+import { ProductProps } from "../../types/product";
 
 interface CardCartProps {
   product: ProductProps;

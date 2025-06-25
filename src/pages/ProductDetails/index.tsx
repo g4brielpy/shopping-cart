@@ -1,7 +1,8 @@
 import { Link, useParams } from "react-router";
 import { useContext, useEffect, useState } from "react";
 
-import { ProductsContext, ProductProps } from "../../contexts/ProductsContext";
+import { ProductsContext } from "../../contexts/ProductsContext";
+import { ProductProps } from "../../types/product";
 import { CartContext } from "../../contexts/CartContext";
 
 import { IoChevronBackSharp } from "react-icons/io5";
