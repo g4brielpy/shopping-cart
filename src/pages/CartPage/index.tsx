@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { CartContext } from "../../contexts/CartContext";
-import { CartItemsProps } from "../../contexts/CartContext";
+import { CartItemsProps } from "../../types/cart";
 
 import TitleCustom from "../../components/TitleCustom";
 import { CardCart } from "../../components/CardCart";

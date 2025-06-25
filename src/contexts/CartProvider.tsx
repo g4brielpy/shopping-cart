@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { CartContext } from "./CartContext";
 
-import { CartItemsProps } from "./CartContext";
-import { ProductProps } from "./ProductsContext";
+import { CartItemsProps } from "../types/cart";
+import { ProductProps } from "../types/product";
 
 export function CartProvider({ children }: { children: React.ReactNode }) {
   const [cartItems, setCartItems] = useState<CartItemsProps[]>([]);
