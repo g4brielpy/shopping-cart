@@ -8,6 +8,8 @@ interface CartContextProps {
   total: number;
   addToCart: (item: ProductProps) => void;
   removeFromCart: (item: ProductProps) => void;
+  decrementQuantity: (item: ProductProps) => void;
+  incrementQuantity: (item: ProductProps) => void;
   clearCart: () => void;
 }
 
