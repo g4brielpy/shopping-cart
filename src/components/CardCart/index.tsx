@@ -1,13 +1,13 @@
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { IoIosAdd, IoIosRemove } from "react-icons/io";
 
-import { ProductProps } from "../../types/product";
+import { CartItemsProps } from "../../types/cart";
 
 interface CardCartProps {
-  product: ProductProps;
+  product: CartItemsProps;
   className?: string;
-  del: (item: ProductProps) => void;
-  add: (item: ProductProps) => void;
+  del: (item: CartItemsProps) => void;
+  add: (item: CartItemsProps) => void;
 }
 
 export function CardCart({ product, del, className = "" }: CardCartProps) {
@@ -38,7 +38,7 @@ export function CardCart({ product, del, className = "" }: CardCartProps) {
           <button className="text-secondary-text bg-border-muted p-2 rounded cursor-pointer hover:bg-gray-700 transition-colors">
             <IoIosRemove size={20} />
           </button>
-          <span className="text-secondary-text">1</span>
+          <span className="text-secondary-text">{product.amount}</span>
           <button className="text-secondary-text bg-border-muted p-2 rounded cursor-pointer hover:bg-gray-700 transition-colors">
             <IoIosAdd size={20} />
           </button>
