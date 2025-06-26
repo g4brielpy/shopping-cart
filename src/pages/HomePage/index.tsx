@@ -18,15 +18,7 @@ export default function HomePage() {
       >
         {productsData.map((product) => (
           <Link to={`produto/${product.id}`} key={product.id}>
-            <CardProduct
-              title={product.title}
-              description={product.description}
-              price={product.price.toLocaleString("pt-BR", {
-                style: "currency",
-                currency: "BRL",
-              })}
-              imgSrc={product.image}
-            />
+            <CardProduct product={product} />
           </Link>
         ))}
       </section>
