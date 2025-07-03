@@ -9,19 +9,22 @@ export default function CartPage() {
   const [productsCart, setProductsCart] = useState<CartItemsProps[] | null>(
     null
   );
+  const [totalCarrinho, setTotalCarrinho] = useState<number>(0);
+
   const CartData = useContext(CartContext);
 
   useEffect(() => {
     setProductsCart(CartData?.cartItems || null);
+    setTotalCarrinho(CartData?.getTotal() || 0);
   }, [CartData]);
 
-  if (!CartData) {
+  if (totalCarrinho === 0) {
     return (
       <main className="container mx-auto p-4">
         <TitleCustom>Carrinho de Compras</TitleCustom>
 
         <section className="my-80">
-          <p className="text-center font-bold text-gray-600">
+          <p className="text-center text-2xl font-semibold text-gray-600">
             Seu carrinho está vazio.
           </p>
         </section>
@@ -39,7 +42,13 @@ export default function CartPage() {
         ))}
       </section>
       <div className="max-w-4xl mx-auto mt-8 p-4 border-border-muted border rounded-lg shadow-md">
-        <p className="text-gray-600">Total: R$ 345,00</p>
+        <p className="text-gray-600">
+          Total:{" "}
+          {totalCarrinho.toLocaleString("pt-BR", {
+            style: "currency",
+            currency: "BRL",
+          })}
+        </p>
         <button className="w-full p-4 rounded cursor-pointer font-bold bg-primary-btn hover:bg-primary-btn-hover transition-colors">
           Checkout
         </button>
