@@ -62,6 +62,16 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     setCartItems(copyItems);
   }
 
+  function getTotal(): number {
+    const total: number = cartItems.reduce(
+      (acumulador, itemAtual) =>
+        (acumulador += itemAtual.price * itemAtual.amount),
+      0
+    );
+
+    return total;
+  }
+
   function clearCart() {
     console.log("Limpar carrinho");
   }
@@ -76,6 +86,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
         incrementQuantity,
         decrementQuantity,
         clearCart,
+        getTotal,
       }}
     >
       {children}
