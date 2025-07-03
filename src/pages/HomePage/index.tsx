@@ -1,5 +1,3 @@
-import { Link } from "react-router";
-
 import TitleCustom from "../../components/TitleCustom";
 import { CardProduct } from "../../components/CardProduct";
 
@@ -17,9 +15,7 @@ export default function HomePage() {
         className="my-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 justify-items-center"
       >
         {productsData.map((product) => (
-          <Link to={`produto/${product.id}`} key={product.id}>
-            <CardProduct product={product} />
-          </Link>
+          <CardProduct key={product.id} product={product} />
         ))}
       </section>
     </main>
