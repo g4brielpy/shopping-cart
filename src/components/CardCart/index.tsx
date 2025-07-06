@@ -5,6 +5,8 @@ import { useContext } from "react";
 import { CartContext } from "../../contexts/CartContext";
 import { CartItemsProps } from "../../types/cart";
 
+import { toast } from "react-toastify";
+
 interface CardCartProps {
   product: CartItemsProps;
   className?: string;
@@ -53,7 +55,10 @@ export function CardCart({ product, className = "" }: CardCartProps) {
           </button>
         </div>
         <button
-          onClick={() => CartData?.removeFromCart(product)}
+          onClick={() => {
+            CartData?.removeFromCart(product);
+            toast("Produto deletado do carrinho!");
+          }}
           className="text-secondary-text bg-border-muted p-2 rounded cursor-pointer hover:text-red-500 transition-colors"
         >
           <RiDeleteBin6Line size={24} />

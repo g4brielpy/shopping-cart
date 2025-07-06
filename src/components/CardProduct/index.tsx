@@ -5,6 +5,8 @@ import { ProductProps } from "../../types/product";
 import { IoIosAdd } from "react-icons/io";
 import { Link } from "react-router";
 
+import { toast } from "react-toastify";
+
 interface CardCartProps {
   product: ProductProps;
   className?: string;
@@ -45,7 +47,10 @@ export function CardProduct({ product, className = "" }: CardCartProps) {
           </p>
 
           <button
-            onClick={() => CartData?.addToCart(product)}
+            onClick={() => {
+              CartData?.addToCart(product);
+              toast("Produto adicionado com sucesso!");
+            }}
             title="Adicionar item ao carrinho"
             className="text-secondary-text bg-border-muted p-2 rounded cursor-pointer hover:bg-gray-700 transition-colors"
           >

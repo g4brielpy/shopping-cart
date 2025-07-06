@@ -7,6 +7,8 @@ import { CartContext } from "../../contexts/CartContext";
 
 import { IoChevronBackSharp } from "react-icons/io5";
 
+import { toast } from "react-toastify";
+
 export default function ProductDetails() {
   const { productId } = useParams();
   const productsData = useContext(ProductsContext);
@@ -72,6 +74,7 @@ export default function ProductDetails() {
               className="p-2 rounded-md bg-primary-btn hover:bg-primary-btn-hover transition-colors"
               onClick={() => {
                 cartData?.addToCart(product);
+                toast("Produto adicionado ao carrinho!");
               }}
             >
               Adicionar ao carrinho
