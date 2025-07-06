@@ -16,11 +16,12 @@ export function CardCart({ product, className = "" }: CardCartProps) {
   return (
     <div
       className={`
+        flex flex-col justify-between gap-2
         w-full bg-dark-surface rounded-2xl shadow-md p-4
         ${className}
        `}
     >
-      <div className="flex flex-col gap-4">
+      <div className="min-h-[200px] flex flex-col justify-between gap-4">
         <h2 className="text-lg font-semibold text-text-primary mt-2">
           {product.title}
         </h2>
