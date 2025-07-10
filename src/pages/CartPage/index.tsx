@@ -20,7 +20,7 @@ export default function CartPage() {
 
   if (totalCarrinho === 0) {
     return (
-      <main className="container mx-auto p-4">
+      <main className="min-h-[800px] my-10 container mx-auto p-4">
         <TitleCustom>Carrinho de Compras</TitleCustom>
 
         <section className="my-80">
@@ -33,7 +33,7 @@ export default function CartPage() {
   }
 
   return (
-    <main className="container mx-auto p-4">
+    <main className="container min-h-[700px] mx-auto my-10 p-4">
       <TitleCustom>Carrinho de Compras</TitleCustom>
 
       <section className="my-8 max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-4 justify-items-center">
