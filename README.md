@@ -1,50 +1,81 @@
-# React + TypeScript + Vite
+# Shopping Cart  
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[![Deploy](https://img.shields.io/badge/Vercel-000?style=for-the-badge&logo=vercel&logoColor=white)](https://shopping-cart-bh.vercel.app/)  
 
-Currently, two official plugins are available:
+Um projeto de **e-commerce** desenvolvido com React + TypeScript, tendo como objetivo principal o **gerenciamento de estado com Redux Toolkit**.  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## Funcionalidades  
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- 🏠 Página inicial listando produtos.  
+- 🔎 Página de detalhes do produto.  
+- ➕ Adicionar/remover itens do carrinho.  
+- 🔄 Alterar quantidade de produtos no carrinho (+/-).  
+- 🛍️ Carrinho de compras com gerenciamento centralizado via Redux.  
+- 🎨 Interface responsiva e moderna com TailwindCSS.  
+- 🚀 Deploy automático via Vercel.  
 
-- Configure the top-level `parserOptions` property like this:
+---
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## 🛠️ Tecnologias Utilizadas  
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### **Frontend**  
+- React  
+- TypeScript  
+- React Router  
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+### **Gerenciamento de Estado**  
+- Redux Toolkit  
+- React-Redux  
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+### **Estilização**  
+- TailwindCSS  
+- React Icons  
+
+### **Ferramentas de Build/Deploy**  
+- Vite  
+- Vercel  
+
+---
+
+## 📂 Estrutura do Projeto  
+
+src/  
+ ├── components/        # Componentes reutilizáveis (CardProduct, Header, Footer...)  
+ ├── features/          # Slices do Redux (cartSlice, productsSlice...)  
+ ├── pages/             # Páginas principais (Home, ProductDetails, Cart...)  
+ ├── store/             # Configuração do Redux store  
+ ├── types/             # Definições de interfaces/types  
+ ├── assets/            # Imagens e ícones estáticos  
+ └── App.tsx            # Componente raiz  
+
+---
+
+## 🚀 Como rodar o projeto localmente  
+
+# Clone o repositório  
+git clone https://github.com/seu-usuario/shopping-cart.git  
+
+# Acesse a pasta do projeto  
+cd shopping-cart  
+
+# Instale as dependências  
+npm install  
+
+# Rode o projeto  
+npm run dev  
+
+---
+
+## 📸 Demonstração  
+
+🔗 [Acesse o projeto online](https://shopping-cart-bh.vercel.app/)  
+
+---
+
+## 👨‍💻 Autor  
+
+Feito com ❤️ por **Gabriel Iuri**  
+- [LinkedIn](https://www.linkedin.com/in/seu-linkedin)  
+- [GitHub](https://github.com/seu-github)  
