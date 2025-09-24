@@ -8,17 +8,17 @@ Um projeto de **e-commerce** desenvolvido com React + TypeScript, tendo como obj
 
 ## Funcionalidades  
 
-- 🏠 Página inicial listando produtos.  
-- 🔎 Página de detalhes do produto.  
-- ➕ Adicionar/remover itens do carrinho.  
-- 🔄 Alterar quantidade de produtos no carrinho (+/-).  
-- 🛍️ Carrinho de compras com gerenciamento centralizado via Redux.  
-- 🎨 Interface responsiva e moderna com TailwindCSS.  
-- 🚀 Deploy automático via Vercel.  
+- Página inicial listando produtos.  
+- Página de detalhes do produto.  
+- Adicionar/remover itens do carrinho.  
+- Alterar quantidade de produtos no carrinho (+/-).  
+- Carrinho de compras com gerenciamento centralizado via Redux.  
+- Interface responsiva e moderna com TailwindCSS.  
+- Deploy automático via Vercel.  
 
 ---
 
-## 🛠️ Tecnologias Utilizadas  
+## Tecnologias Utilizadas  
 
 ### **Frontend**  
 - React  
@@ -39,7 +39,7 @@ Um projeto de **e-commerce** desenvolvido com React + TypeScript, tendo como obj
 
 ---
 
-## 📂 Estrutura do Projeto  
+## Estrutura do Projeto  
 
 src/  
  ├── components/        # Componentes reutilizáveis (CardProduct, Header, Footer...)  
@@ -52,30 +52,14 @@ src/
 
 ---
 
-## 🚀 Como rodar o projeto localmente  
-
-# Clone o repositório  
-git clone https://github.com/seu-usuario/shopping-cart.git  
-
-# Acesse a pasta do projeto  
-cd shopping-cart  
-
-# Instale as dependências  
-npm install  
-
-# Rode o projeto  
-npm run dev  
-
----
-
-## 📸 Demonstração  
+### Demonstração  
 
 🔗 [Acesse o projeto online](https://shopping-cart-bh.vercel.app/)  
 
 ---
 
-## 👨‍💻 Autor  
+### Autor  
 
-Feito com ❤️ por **Gabriel Iuri**  
-- [LinkedIn](https://www.linkedin.com/in/seu-linkedin)  
-- [GitHub](https://github.com/seu-github)  
+Feito por **Gabriel Iuri**  
+- [LinkedIn](https://www.linkedin.com/in/seu-linkedin)
+- [GitHub](https://www.linkedin.com/in/g4briel-yur1/)  
